@@ -1,0 +1,19 @@
+[project]
+name = "librclone"
+description = "Small wrapper around `librclone` to allow RPC calls to RClone from Python"
+version = "1.62.2"
+authors = [
+    { name = "Nick Craig-Wood", email = "nick@craig-wood.com" }
+]
+
+dependencies = []
+
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["librclone"]
+
+[tool.setuptools.package-data]
+librclone = ["librclone/lib/*"]
