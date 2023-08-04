@@ -1,11 +1,12 @@
-VERSION := "v1.62.2"
+VERSION := "v1.63.1"
 REPO = "https://github.com/rclone/rclone.git"
 TMPDIR := $(shell mktemp -d)/rclone
 OUTDIR := librclone/lib
 
 .PHONY: librclone-$(VERSION)
 librclone-$(VERSION):
-	git clone --depth 1 --branch $(VERSION) $(REPO) $(TMPDIR)
+	git clone $(REPO) $(TMPDIR)
+	cd $(TMPDIR); git checkout tags/$(VERSION)
 	@echo "Cloned $(REPO) to $(TMPDIR)"
 
 $(OUTDIR)/librclone.so: librclone-$(VERSION)
