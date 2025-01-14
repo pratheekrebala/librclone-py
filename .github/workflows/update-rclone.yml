@@ -20,8 +20,14 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Install Fuse bindings
-      run: sudo apt-get install -y fuse3 libfuse3-dev
-    
+      shell: bash
+      run: |
+        sudo modprobe fuse
+        sudo chmod 666 /dev/fuse
+        sudo chown root:$USER /etc/fuse.conf
+        sudo apt-get update
+        sudo apt-get install -y fuse3 libfuse-dev rpm pkg-config git-annex git-annex-remote-rclone nfs-common
+
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
