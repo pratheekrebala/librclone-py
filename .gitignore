@@ -2,3 +2,4 @@
 librclone/lib
 .DS_Store
 __pycache__
+dist/
