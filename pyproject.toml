@@ -2,18 +2,26 @@
 name = "librclone"
 description = "Small wrapper around `librclone` to allow RPC calls to RClone from Python"
 version = "1.62.2"
+
 authors = [
     { name = "Nick Craig-Wood", email = "nick@craig-wood.com" }
 ]
+maintainers = [
+    { name = "Pratheek Rebala", email = "pratheekrebala@gmail.com" }
+]
 
-dependencies = []
+[tool.poetry]
+packages = [
+    { include = "librclone" }
+]
+
+include = [
+    { path = "librclone/lib/*", format = "wheel"}
+]
 
 [build-system]
-requires = ["setuptools", "setuptools-scm"]
-build-backend = "setuptools.build_meta"
+requires = ["poetry-core", "setuptools", "cython"]
+build-backend = "poetry.core.masonry.api"
 
-[tool.setuptools]
-packages = ["librclone"]
-
-[tool.setuptools.package-data]
-librclone = ["librclone/lib/*"]
+[tool.poetry.build]
+script = "build/build.py"
