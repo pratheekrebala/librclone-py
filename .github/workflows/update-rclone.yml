@@ -19,6 +19,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: Install Fuse bindings
+      run: sudo apt-get install -y fuse3 libfuse3-dev
+    
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
